@@ -21,15 +21,28 @@ const Pokemones = () => {
 
     return (
 
-        <div className="row">
+        <div className="row mt-5">
 
             <div className="col-7 col-md-6">
 
             <h3>Lista de Pokemones</h3>
 
-            <br/>
+            <ul className="list-group mt-4">
+                    {
+                        pokemones.map(item => (
+                            <li key={item.name} className="list-group-item text-uppercase">
+                            {item.name}
+                                <button
+                                    onClick={() => dispatch(unPokeDetalleAccion(item.url)) } 
+                                    className="btn btn-dark btn-sm float-right"
+                                    >Info
+                                </button>
+                            </li>
+                        ))
+                    }
+                </ul>
 
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between mt-4">
                 {
                     pokemones.length === 0 && 
                     <button 
@@ -55,20 +68,7 @@ const Pokemones = () => {
                 }
             </div>
 
-                <ul className="list-group mt-3">
-                    {
-                        pokemones.map(item => (
-                            <li key={item.name} className="list-group-item text-uppercase">
-                            {item.name}
-                                <button
-                                    onClick={() => dispatch(unPokeDetalleAccion(item.url)) } 
-                                    className="btn btn-dark btn-sm float-right"
-                                    >Info
-                                </button>
-                            </li>
-                        ))
-                    }
-                </ul>
+                
             </div>
             <div className="col-5 col-md-6">
             <h3>Detalle Pokemon</h3>

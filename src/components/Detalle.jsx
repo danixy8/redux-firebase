@@ -16,7 +16,7 @@ const Detalle = () => {
     const pokemon = useSelector(store => store.pokemones.unPokemon)
 
     return pokemon ? (
-        <div className="card mt-5 text-center">
+        <div className="card mt-4 text-center">
         <div className="card-body">
         <img src={pokemon.foto} className="img-fluid" alt=""/>
             <div className="card-title text-uppercase">{pokemon.nombre}</div>
